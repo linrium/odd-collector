@@ -25,7 +25,7 @@ class Adapter(BaseAdapter):
     def get_data_source_oddrn(self) -> str:
         return self.generator.get_data_source_oddrn()
 
-    async def get_data_entity_list(self) -> DataEntityList:
+    def get_data_entity_list(self) -> DataEntityList:
         client = self.client
         catalog_entities: list[DataEntity] = []
         schema_entities: list[DataEntity] = []

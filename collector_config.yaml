@@ -1,12 +1,10 @@
-default_pulling_interval: 60 # in minutes. If not specified, collector will pull data once.
+default_pulling_interval: 10
+token: "jGqV6kWWMcOtesjRMee8dTuWkrEdOSpGBEO8AiF9"
 platform_host_url: http://localhost:8080
-token: <token> # Required string, token for authentication
+chunk_size: 1000
 plugins:
-  - type: postgresql
-    name: postgresql_adapter
-    description: "" # Optional string
-    database: database
-    host: host
-    port: 5432
-    user: user
-    password: password
+  - type: duckdb
+    name: duckdb_adapter
+    paths:
+      - tests/data2.duckdb
+    host: localhost

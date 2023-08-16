@@ -51,6 +51,9 @@ def traverse_tree(node):
                     raise StructureError(f"Got an unexpected nested child: {value}")
             return DUnion(fields)
 
+        elif node.data == "decimal":
+            return node.data
+
         elif node.data == "field":
             if len(node.children) != 2:
                 raise StructureError(f"Unexpected field structure: {node}")

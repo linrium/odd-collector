@@ -1,4 +1,5 @@
-@startuml
+
+  @startuml
 
 namespace odd_collector_sdk.domain.plugin {
 abstract class pydantic.BaseSettings

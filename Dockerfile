@@ -28,36 +28,10 @@ RUN poetry config virtualenvs.create false
 RUN poetry config experimental.new-installer false
 
 COPY poetry.lock pyproject.toml ./
-RUN poetry lock --no-update
 RUN poetry install --no-interaction --no-ansi --no-dev -vvv
 
 
 FROM base as runtime
-
-# For pyodbc
-COPY --from=build microsoft.asc microsoft.asc
-COPY --from=build mssql-release.list mssql-release.list
-
-ENV ACCEPT_EULA=Y
-RUN apt-get update -y && apt-get install -y gnupg2 \
-    && apt-key add microsoft.asc && rm microsoft.asc \
-    && mv mssql-release.list /etc/apt/sources.list.d/mssql-release.list \
-    && apt-get update -y \
-    && apt-get install -y g++ unixodbc-dev \
-    && apt-get install -y unixodbc-bin \
-    && apt-get install -y msodbcsql17 libgssapi-krb5-2 libpq-dev \
-    && apt-get install -y libaio1 wget unzip
-
-
-WORKDIR /opt/oracle
-# Installing Oracle instant client
-RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip && \
-    unzip instantclient-basiclite-linuxx64.zip && rm -f instantclient-basiclite-linuxx64.zip && \
-    cd /opt/oracle/instantclient* && rm -f *jdbc* *occi* *mysql* *README *jar uidrvci genezi adrci && \
-    echo /opt/oracle/instantclient* > /etc/ld.so.conf.d/oracle-instantclient.conf && ldconfig
-
-RUN useradd --create-home --shell /bin/bash app
-USER app
 
 # non-interactive env vars https://bugs.launchpad.net/ubuntu/+source/ansible/+bug/1833013
 ENV DEBIAN_FRONTEND=noninteractive

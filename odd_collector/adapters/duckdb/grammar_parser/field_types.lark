@@ -33,11 +33,15 @@ map: "MAP" "(" type ", " type ")"
 
 union: "UNION" "(" field (", " field)* ")"
 
+decimal: "DECIMAL" "(" INT "," INT ")"
+
 ?type: BASIC_TYPE
      | list
      | struct
      | map
      | union
+     | decimal
 
 %import common.LETTER
 %import common.DIGIT
+%import common.INT

@@ -23,3 +23,7 @@ class Table:
     @property
     def odd_metadata(self):
         return self.metadata
+
+    @odd_metadata.setter
+    def odd_metadata(self, value):
+        self.metadata = value
