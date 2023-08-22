@@ -23,4 +23,7 @@ TYPES_SQL_TO_ODD: dict[str, Type] = {
     "UUID": Type.TYPE_STRING,
     "VARCHAR": Type.TYPE_STRING,
     "INTERVAL": Type.TYPE_DURATION,
+    "BIT": Type.TYPE_NUMBER,
+    "TIMESTAMP WITH TIME ZONE": Type.TYPE_DATETIME,
+    "FLOAT": Type.TYPE_NUMBER,
 }

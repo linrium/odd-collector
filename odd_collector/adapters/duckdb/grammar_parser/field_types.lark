@@ -20,6 +20,9 @@ BASIC_TYPE: "BIGINT"
           | "UUID"
           | "VARCHAR"
           | "INTERVAL"
+          | "BIT"
+          | "FLOAT"
+          | "TIMESTAMP WITH TIME ZONE"
 
 list: type"[]"
 

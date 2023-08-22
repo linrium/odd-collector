@@ -1,10 +1,10 @@
 default_pulling_interval: 10
-token: "jGqV6kWWMcOtesjRMee8dTuWkrEdOSpGBEO8AiF9"
+token: "MXkEzOHOjiuSDdIssoeNh3nU39F52cw1I6J3s3mr"
 platform_host_url: http://localhost:8080
 chunk_size: 1000
 plugins:
   - type: duckdb
     name: duckdb_adapter
     paths:
-      - tests/data2.duckdb
+      - ./tests/integration/data.duckdb
     host: localhost

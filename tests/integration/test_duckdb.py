@@ -14,7 +14,7 @@ def test_duckdb():
     config = DuckDBPlugin(
         type="duckdb",
         name="duckdb_adapter",
-        paths=["./data2.duckdb"],
+        paths=["./data.duckdb"],
     )
     data_entities = Adapter(config).get_data_entity_list()
     print(data_entities)

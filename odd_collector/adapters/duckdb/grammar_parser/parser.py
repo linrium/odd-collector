@@ -52,7 +52,7 @@ def traverse_tree(node):
             return DUnion(fields)
 
         elif node.data == "decimal":
-            return node.data
+            return BasicType(node.data)
 
         elif node.data == "field":
             if len(node.children) != 2:

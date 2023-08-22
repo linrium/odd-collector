@@ -28,6 +28,7 @@ RUN poetry config virtualenvs.create false
 RUN poetry config experimental.new-installer false
 
 COPY poetry.lock pyproject.toml ./
+RUN poetry lock --no-update
 RUN poetry install --no-interaction --no-ansi --no-dev -vvv
 
 
